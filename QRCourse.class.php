@@ -15,20 +15,27 @@ class QRCourse extends StudIPPlugin implements SystemPlugin {
     public function addQRCodeLink()
     {
         if (Navigation::getItem("/course")->isActive()) {
-            PageLayout::addStylesheet($this->getPluginURL()."/assets/qrcourse.less");
+            $this->addStylesheet("assets/qrcourse.less");
             PageLayout::addScript($this->getPluginURL()."/assets/qrcode.js");
             PageLayout::addScript($this->getPluginURL()."/assets/qrcourse.js");
             URLHelper::setBaseURL($GLOBALS['ABSOLUTE_URI_STUDIP']);
+            $url = URLHelper::getLink($_SERVER['REQUEST_URI'], $_GET);
             PageLayout::addBodyElements('
-                <div style="background-color: white; width: 100%; height: 100%; justify-content: center; align-items: center;"
+                <div style="background-color: white; width: 100%; height: 100%; flex-direction: column; justify-content: center; align-items: center;"
                      id="qr_code">
-                    <img style="width: 90vh; height: 90vh;">
+                    <div>
+                        <img style="width: 90vh; height: 90vh;" class="qr_code">
+                    </div>
+                    <div>
+                        ' . Assets::img("logos/logoklein.png", array('style' => "vertical-align: middle; height: 40px;")) . '
+                        '.$url.'
+                    </div>
                 </div>
                 <script>
                     jQuery(function () {
-                        var qrcode = new QRCode("'. URLHelper::getLink($_SERVER['REQUEST_URI'], $_GET) .'");
+                        var qrcode = new QRCode("'. $url .'");
                         var svg = qrcode.svg();
-                        jQuery("#qr_code img").attr("src", "data:image/svg+xml;base64," + btoa(svg));
+                        jQuery("#qr_code img.qr_code").attr("src", "data:image/svg+xml;base64," + btoa(svg));
                     });
                     STUDIP.EvaSys = {
                         showQR: function () {
