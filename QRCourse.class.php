@@ -58,7 +58,7 @@ class QRCourse extends StudIPPlugin implements SystemPlugin {
             $link->addLink(
                 _("QR-Code anzeigen"),
                 "#",
-                Assets::image_path("icons/black/code-qr.svg"), array(
+                Assets::image_path("icons/blue/code-qr.svg"), array(
                     'onClick' => "STUDIP.QRCourse.showQR(); return false;",
                     'title' => _("Ihre Studierenden können den QR-Code mit dem Smartphone vom Beamer abscannen und gleich in der Veranstaltung abstimmen oder mitdiskutieren.")
                 )
