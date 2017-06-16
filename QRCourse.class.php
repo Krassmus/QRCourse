@@ -7,14 +7,6 @@ class QRCourse extends StudIPPlugin implements SystemPlugin {
         parent::__construct();
         if (Navigation::hasItem("/course")
                 && $GLOBALS['perm']->have_studip_perm("tutor", $_SESSION['SessionSeminar'])) {
-            NotificationCenter::addObserver($this, "addQRCodeLink", "PageWillRender");
-
-        }
-    }
-
-    public function addQRCodeLink()
-    {
-        if (Navigation::getItem("/course")->isActive()) {
             $this->addStylesheet("assets/qrcourse.less");
             PageLayout::addScript($this->getPluginURL()."/assets/qrcode.js");
             PageLayout::addScript($this->getPluginURL()."/assets/qrcourse.js");
@@ -26,9 +18,9 @@ class QRCourse extends StudIPPlugin implements SystemPlugin {
                     <div>
                         <img style="width: 90vh; height: 90vh;" class="qr_code">
                     </div>
-                    <div>
-                        ' . Assets::img("logos/logoklein.png", array('style' => "vertical-align: middle; height: 40px;")) . '
-                        '.$url.'
+                    <div class="bottom">
+                        ' . Assets::img("logos/logoklein.png", array('style' => "height: 40px;")) . '
+                        <span>'.htmlReady($url).'</span>
                     </div>
                 </div>
                 <script>
@@ -54,13 +46,20 @@ class QRCourse extends StudIPPlugin implements SystemPlugin {
                 </script>
             ');
 
+            NotificationCenter::addObserver($this, "addQRCodeLink", "SidebarWillRender");
+        }
+    }
+
+    public function addQRCodeLink()
+    {
+        if (Navigation::getItem("/course")->isActive()) {
             $link = new LinksWidget();
             $link->setTitle(_("Audience-Response"));
             $link->addLink(
                 _("QR-Code anzeigen"),
                 "#",
                 Assets::image_path("icons/black/code-qr.svg"), array(
-                    'onClick' => "STUDIP.EvaSys.showQR(); return false;",
+                    'onClick' => "STUDIP.QRCourse.showQR(); return false;",
                     'title' => _("Ihre Studierenden können den QR-Code mit dem Smartphone vom Beamer abscannen und gleich in der Veranstaltung abstimmen oder mitdiskutieren.")
                 )
             );
