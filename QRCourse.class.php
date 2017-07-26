@@ -8,7 +8,7 @@ class QRCourse extends StudIPPlugin implements SystemPlugin {
         if (Navigation::hasItem("/course")
                 && $GLOBALS['perm']->have_studip_perm("tutor", $_SESSION['SessionSeminar'])) {
             $this->addStylesheet("assets/qrcourse.less");
-            PageLayout::addScript($this->getPluginURL()."/assets/qrcode.js");
+            PageLayout::addScript($this->getPluginURL()."/assets/qrcode.min.js");
             PageLayout::addScript($this->getPluginURL()."/assets/qrcourse.js");
             URLHelper::setBaseURL($GLOBALS['ABSOLUTE_URI_STUDIP']);
             $url = URLHelper::getLink($_SERVER['REQUEST_URI'], $_GET);
@@ -16,7 +16,7 @@ class QRCourse extends StudIPPlugin implements SystemPlugin {
                 <div style="background-color: white; width: 100%; height: 100%; flex-direction: column; justify-content: center; align-items: center;"
                      id="qr_code">
                     <div>
-                        <img style="width: 90vh; height: 90vh;" class="qr_code">
+                        <div style="margin-left: auto; margin-right: auto; text-align: center;" id="qr_code_div"></div>
                     </div>
                     <div class="bottom">
                         ' . Assets::img("logos/logoklein.png", array('style' => "height: 40px;")) . '
@@ -25,9 +25,17 @@ class QRCourse extends StudIPPlugin implements SystemPlugin {
                 </div>
                 <script>
                     jQuery(function () {
-                        var qrcode = new QRCode("'. $url .'");
-                        var svg = qrcode.svg();
-                        jQuery("#qr_code img.qr_code").attr("src", "data:image/svg+xml;base64," + btoa(svg));
+                        //var qrcode = new QRCode("'. $url .'");
+                        //var svg = qrcode.svg();
+                        //jQuery("#qr_code img.qr_code").attr("src", "data:image/svg+xml;base64," + btoa(svg));
+                        
+                        new QRCode(
+                            document.getElementById("qr_code_div"), { 
+                                text: "' . $url . '",
+                                width: 1280,
+                                height: 1280
+                            }
+                        );
                     });
                     STUDIP.EvaSys = {
                         showQR: function () {
