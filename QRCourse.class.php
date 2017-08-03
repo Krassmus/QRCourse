@@ -6,12 +6,22 @@ class QRCourse extends StudIPPlugin implements SystemPlugin {
     {
         parent::__construct();
         if (Navigation::hasItem("/course")
-                && $GLOBALS['perm']->have_studip_perm("tutor", $_SESSION['SessionSeminar'])) {
+                && $GLOBALS['perm']->have_studip_perm("tutor", $_SESSION['SessionSeminar'])
+                && stripos($_SERVER['REQUEST_URI'], "plugins.php/cliqrplugin") === false) {
             $this->addStylesheet("assets/qrcourse.less");
             PageLayout::addScript($this->getPluginURL()."/assets/qrcode.min.js");
             PageLayout::addScript($this->getPluginURL()."/assets/qrcourse.js");
             URLHelper::setBaseURL($GLOBALS['ABSOLUTE_URI_STUDIP']);
-            $url = URLHelper::getLink($_SERVER['REQUEST_URI'], $_GET);
+            $url = URLHelper::getURL($_SERVER['REQUEST_URI'], $_GET);
+            if (Config::get()->QRCOURSE_URL_APPENDIX) {
+                $params = array();
+                $appendix = explode("&", Config::get()->QRCOURSE_URL_APPENDIX);
+                foreach ($appendix as $param) {
+                    $param = explode("=", $param);
+                    $params[urldecode($param[0])] = urldecode($param[1]);
+                }
+                $url = URLHelper::getURL($url, $params);
+            }
             PageLayout::addBodyElements('
                 <div style="background-color: white; width: 100%; height: 100%; flex-direction: column; justify-content: center; align-items: center;"
                      id="qr_code">
@@ -25,10 +35,6 @@ class QRCourse extends StudIPPlugin implements SystemPlugin {
                 </div>
                 <script>
                     jQuery(function () {
-                        //var qrcode = new QRCode("'. $url .'");
-                        //var svg = qrcode.svg();
-                        //jQuery("#qr_code img.qr_code").attr("src", "data:image/svg+xml;base64," + btoa(svg));
-                        
                         new QRCode(
                             document.getElementById("qr_code_div"), { 
                                 text: "' . $url . '",
