@@ -12,7 +12,7 @@ class QRCourse extends StudIPPlugin implements SystemPlugin {
             PageLayout::addScript($this->getPluginURL()."/assets/qrcode.min.js");
             PageLayout::addScript($this->getPluginURL()."/assets/qrcourse.js");
             URLHelper::setBaseURL($GLOBALS['ABSOLUTE_URI_STUDIP']);
-            $url = URLHelper::getURL($_SERVER['REQUEST_URI'], $_GET);
+            $url = URLHelper::getScriptURL($_SERVER['REQUEST_URI']);
             if (Config::get()->QRCOURSE_URL_APPENDIX) {
                 $params = array();
                 $appendix = explode("&", Config::get()->QRCOURSE_URL_APPENDIX);
@@ -20,7 +20,7 @@ class QRCourse extends StudIPPlugin implements SystemPlugin {
                     $param = explode("=", $param);
                     $params[urldecode($param[0])] = urldecode($param[1]);
                 }
-                $url = URLHelper::getURL($url, $params);
+                $url = URLHelper::getScriptURL($url, $params);
             }
             PageLayout::addBodyElements('
                 <div style="background-color: white; width: 100%; height: 100%; flex-direction: column; justify-content: center; align-items: center;"
@@ -37,9 +37,10 @@ class QRCourse extends StudIPPlugin implements SystemPlugin {
                     jQuery(function () {
                         new QRCode(
                             document.getElementById("qr_code_div"), { 
-                                text: "' . $url . '",
+                                text: "' . jsReady($url, 'script-double') . '",
                                 width: 1280,
-                                height: 1280
+                                height: 1280,
+                                correctLevel:3
                             }
                         );
                     });
