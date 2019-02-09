@@ -6,7 +6,7 @@ class QRCourse extends StudIPPlugin implements SystemPlugin {
     {
         parent::__construct();
         if (Navigation::hasItem("/course")
-                && $GLOBALS['perm']->have_studip_perm("tutor", $_SESSION['SessionSeminar'])
+                && $GLOBALS['perm']->have_studip_perm("tutor", Context::get()->id)
                 && stripos($_SERVER['REQUEST_URI'], "plugins.php/cliqrplugin") === false) {
             $this->addStylesheet("assets/qrcourse.less");
             PageLayout::addScript($this->getPluginURL()."/assets/qrcode.min.js");
