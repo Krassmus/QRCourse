@@ -1,0 +1,93 @@
+#: ../views/lamp/index.php:11
+msgid "Und als verzweifelnd er durchblättert<br>\n"
+"Seite für Seite sein Gedächtnis<br>\n"
+"Nach Mitteln gegen diese Pein,<br>\n"
+"Fiel ihm des falschen Freunds Vermächtnis,<br>\n"
+"Die Wunderlampe, wieder ein. "
+msgstr "And when he desperately browsed <br>\n"
+"Page by page his memory <br>\n"
+"For cure for this pain, <br>\n"
+"He remembered his false friend's heritage, <br>\n"
+"The magic lamp. "
+
+#: ../views/lamp/index.php:29 ../views/lamp/brainstorm.php:47
+msgid "Jetzt brainstormen"
+msgstr "Brainstorm now"
+
+#: ../views/lamp/_voteable_brainstorm.php:34
+msgid "Bester Kommentar dazu"
+msgstr "Best comment on this"
+
+#: ../views/lamp/_voteable_brainstorm.php:39
+msgid "Dazu weiter brainstormen"
+msgstr "Continue brainstorming"
+
+#: ../views/lamp/brainstorm.php:11
+msgid "Zur Übersicht"
+msgstr "To overview"
+
+#: ../views/lamp/brainstorm.php:33
+msgid "Absenden"
+msgstr "Send"
+
+#: ../views/lamp/brainstorm.php:54
+msgid "QR-Code anzeigen"
+msgstr "Show QR code"
+
+#: ../views/lamp/edit.php:11
+msgid "Titel"
+msgstr "title"
+
+#: ../views/lamp/edit.php:12
+msgid "Frage oder Thema"
+msgstr "Question or subject"
+
+#: ../views/lamp/edit.php:17
+msgid "Text"
+msgstr "Text"
+
+#: ../views/lamp/edit.php:18
+msgid "Um was soll's gehen?"
+msgstr "What is it about?"
+
+#: ../views/lamp/edit.php:22
+msgid "Anlegen"
+msgstr "Create"
+
+#: ../views/lamp/_linked_brainstorm.php:9
+msgid "Wirklich löschen?"
+msgstr "Do you really want to delete?"
+
+#: ../controllers/lamp.php:19
+msgid "Neuen Brainstorm starten"
+msgstr "Start new brainstorming"
+
+#: ../controllers/lamp.php:56 ../controllers/lamp.php:149
+#, php-format
+msgid "%s hat mit gebrainstormed"
+msgstr "%s has brainstormed too"
+
+#: ../controllers/lamp.php:94
+msgid "Beitrag wurde gelöscht."
+msgstr "Post has been deleted."
+
+#: ../Aladdin.php:73
+#, php-format
+msgid "%s neue Brainstorms verfügbar"
+msgstr "%s new brainstorms available"
+
+#: ../Aladdin.php:83
+msgid "Aladdin"
+msgstr "Aladdin"
+
+#: ../models/Brainstorm.php:41
+msgid "Standard"
+msgstr "Standard"
+
+#: ../models/Brainstorm.php:42
+msgid "Untergliedert"
+msgstr "With subchapters"
+
+#: ../models/Brainstorm.php:43
+msgid "Kommentiert"
+msgstr "Commented"

@@ -1,0 +1,109 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-29 15:01+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../views/lamp/index.php:11
+msgid ""
+"Und als verzweifelnd er durchblättert<br>\n"
+"                Seite für Seite sein Gedächtnis<br>\n"
+"                Nach Mitteln gegen diese Pein,<br>\n"
+"                Fiel ihm des falschen Freunds Vermächtnis,<br>\n"
+"                Die Wunderlampe, wieder ein. "
+msgstr ""
+
+#: ../views/lamp/index.php:29 ../views/lamp/brainstorm.php:47
+msgid "Jetzt brainstormen"
+msgstr ""
+
+#: ../views/lamp/_voteable_brainstorm.php:34
+msgid "Bester Kommentar dazu"
+msgstr ""
+
+#: ../views/lamp/_voteable_brainstorm.php:39
+msgid "Dazu weiter brainstormen"
+msgstr ""
+
+#: ../views/lamp/brainstorm.php:11
+msgid "Zur Übersicht"
+msgstr ""
+
+#: ../views/lamp/brainstorm.php:33
+msgid "Absenden"
+msgstr ""
+
+#: ../views/lamp/brainstorm.php:54
+msgid "QR-Code anzeigen"
+msgstr ""
+
+#: ../views/lamp/edit.php:11
+msgid "Titel"
+msgstr ""
+
+#: ../views/lamp/edit.php:12
+msgid "Frage oder Thema"
+msgstr ""
+
+#: ../views/lamp/edit.php:17
+msgid "Text"
+msgstr ""
+
+#: ../views/lamp/edit.php:18
+msgid "Um was soll's gehen?"
+msgstr ""
+
+#: ../views/lamp/edit.php:22
+msgid "Anlegen"
+msgstr ""
+
+#: ../views/lamp/_linked_brainstorm.php:9
+msgid "Wirklich löschen?"
+msgstr ""
+
+#: ../models/Brainstorm.php:41
+msgid "Standard"
+msgstr ""
+
+#: ../models/Brainstorm.php:42
+msgid "Untergliedert"
+msgstr ""
+
+#: ../models/Brainstorm.php:43
+msgid "Kommentiert"
+msgstr ""
+
+#: ../controllers/lamp.php:19
+msgid "Neuen Brainstorm starten"
+msgstr ""
+
+#: ../controllers/lamp.php:56 ../controllers/lamp.php:149
+#, php-format
+msgid "%s hat mit gebrainstormed"
+msgstr ""
+
+#: ../controllers/lamp.php:94
+msgid "Beitrag wurde gelöscht."
+msgstr ""
+
+#: ../Aladdin.php:74
+#, php-format
+msgid "%s neue Brainstorms verfügbar"
+msgstr ""
+
+#: ../Aladdin.php:84
+msgid "Aladdin"
+msgstr ""

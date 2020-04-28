@@ -4,6 +4,7 @@ class QRCourse extends StudIPPlugin implements SystemPlugin {
 
     public function __construct()
     {
+        bindtextdomain("qrcourse", __DIR__."/locale");
         parent::__construct();
         if (Navigation::hasItem("/course")
                 && $GLOBALS['perm']->have_studip_perm("tutor", Context::get()->id)
@@ -36,7 +37,7 @@ class QRCourse extends StudIPPlugin implements SystemPlugin {
                 <script>
                     jQuery(function () {
                         new QRCode(
-                            document.getElementById("qr_code_div"), { 
+                            document.getElementById("qr_code_div"), {
                                 text: "' . jsReady($url, 'script-double') . '",
                                 width: 1280,
                                 height: 1280,
