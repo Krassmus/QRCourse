@@ -4,8 +4,8 @@ class QRCourse extends StudIPPlugin implements SystemPlugin {
 
     public function __construct()
     {
-        bindtextdomain("qrcourse", __DIR__."/locale");
         parent::__construct();
+        bindtextdomain("qrcourse", __DIR__."/locale");
         if (Navigation::hasItem("/course")
                 && $GLOBALS['perm']->have_studip_perm("tutor", Context::get()->id)
                 && stripos($_SERVER['REQUEST_URI'], "plugins.php/cliqrplugin") === false) {
