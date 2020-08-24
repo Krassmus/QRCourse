@@ -5,6 +5,7 @@ class QRCourse extends StudIPPlugin implements SystemPlugin {
     public function __construct()
     {
         parent::__construct();
+        bindtextdomain("qrcourse", __DIR__."/locale");
         if (Navigation::hasItem("/course")
                 && $GLOBALS['perm']->have_studip_perm("tutor", Context::get()->id)
                 && stripos($_SERVER['REQUEST_URI'], "plugins.php/cliqrplugin") === false) {
@@ -36,7 +37,7 @@ class QRCourse extends StudIPPlugin implements SystemPlugin {
                 <script>
                     jQuery(function () {
                         new QRCode(
-                            document.getElementById("qr_code_div"), { 
+                            document.getElementById("qr_code_div"), {
                                 text: "' . jsReady($url, 'script-double') . '",
                                 width: 1280,
                                 height: 1280,
@@ -69,13 +70,13 @@ class QRCourse extends StudIPPlugin implements SystemPlugin {
     {
         if (Navigation::getItem("/course")->isActive()) {
             $link = new LinksWidget();
-            $link->setTitle(_("Audience-Response"));
+            $link->setTitle(dgettext("qrcourse", "Audience-Response"));
             $link->addLink(
-                _("QR-Code anzeigen"),
+                dgettext("qrcourse", "QR-Code anzeigen"),
                 "#",
                 Icon::create("code-qr"), array(
                     'onClick' => "STUDIP.QRCourse.showQR(); return false;",
-                    'title' => _("Ihre Studierenden können den QR-Code mit dem Smartphone vom Beamer abscannen und gleich in der Veranstaltung abstimmen oder mitdiskutieren.")
+                    'title' => dgettext("qrcourse", "Ihre Studierenden können den QR-Code mit dem Smartphone vom Beamer abscannen und gleich in der Veranstaltung abstimmen oder mitdiskutieren.")
                 )
             );
             Sidebar::Get()->addWidget($link);
