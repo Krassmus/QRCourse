@@ -1,6 +1,6 @@
 pluginname=QRCourse
 pluginclassname=QRCourse
 origin=RasmusFuhse
-version=1.2.5
+version=1.2.6
 studipMinVersion=4.0
-studipMaxVersion=5.2.99
+studipMaxVersion=5.5.99
